@@ -73,46 +73,78 @@ public class policy
     weight = weight;
   }
   
-  public double policyNumber()
+  public double getpolicyNumber()
   {
     return policyNumber;
   }
   
-  public string providerName()
+  public string getproviderName()
   {
     return providerName;
   }
   
-  public string policyholderFirstName()
+  public string getpolicyholderFirstName()
   {
     return policyholderFirstName;
   }
  
-  public string policyholderLastName()
+  public string getpolicyholderLastName()
   {
     return  policyholderLastName;
   }
   
-  public int age()
+  public int getage()
   {
    return age;
   }
   
-  public string smokingStatus()
+  public string getsmokingStatus()
   {
     return smokingStatus;
   }
   
-  public double height()
+  public double getheight()
   {
     return height;
   }
   
-  public double weight()
+  public double getweight()
   {
     return weight;
   }
   
+  public double calculateBmi()
+  {
+    double BMI;
+    
+    BMI = (weight * 703 ) / (height * height);
+    
+    return BMI;
+  }
+  
+  public double calculatePricePolicy()
+  {
+    final double insurancePolicy = 600;
+    double additionalFee;
+    int age;
+    
+    
+    if(age > 50)
+    {
+      additionalFee = insurancePolicy + 75;
+    }
+    else if(smokingStatus = smoker)
+    {
+      additionalFee = insurancePolicy + 100;
+    }
+    else if(BMI > 35)
+    {
+      additionalFee = (BMI - 35) * 20;
+    }
+    
+    return additionalFee;
+  }
+    
      
      
      
