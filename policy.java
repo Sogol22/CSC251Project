@@ -1,11 +1,11 @@
 public class policy
 {
   private double policyNumber;
-  private string providerName;
-  private string policyholderFirstName;
-  private string policyholderLastName;
+  private String providerName;
+  private String policyholderFirstName;
+  private String policyholderLastName;
   private int age;
-  private string smokingStatus;
+  private String smokingStatus;
   private double height;
   private double weight;
   
@@ -21,7 +21,7 @@ public class policy
     weight = 0.0;
   }
   
-  public policy(double policyNumber , string providerName , string policyholderFirstName , string policyholderLastName , int age , string smokingStatus , double height , double weight)
+  public policy(double policyNumber , String providerName , String policyholderFirstName , String policyholderLastName , int age , String smokingStatus , double height , double weight)
   {
      policyNumber =  policyNumber;
      providerName = providerName;
@@ -38,17 +38,17 @@ public class policy
      policyNumber =  policyNumber;
   }
   
-  public void setproviderName(string providerName)
+  public void setproviderName(String providerName)
   {
     providerName = providerName;
   }
   
-  public void setpolicyholderFirstName(string policyholderFirstName)
+  public void setpolicyholderFirstName(String policyholderFirstName)
   {
     policyholderFirstName = policyholderFirstName;
   }
   
-  public void setpolicyholderLastName(string policyholderLastName)
+  public void setpolicyholderLastName(String policyholderLastName)
   {
     policyholderLastName = policyholderLastName;
   }
@@ -58,7 +58,7 @@ public class policy
     age = age;
   }
   
-  public void setsmokingStatus(string smokingStatus)
+  public void setsmokingStatus(String smokingStatus)
   {
     smokingStatus = smokingStatus;
   }
@@ -78,17 +78,17 @@ public class policy
     return policyNumber;
   }
   
-  public string providerName()
+  public String providerName()
   {
     return providerName;
   }
   
-  public string policyholderFirstName()
+  public String policyholderFirstName()
   {
     return policyholderFirstName;
   }
  
-  public string policyholderLastName()
+  public String policyholderLastName()
   {
     return  policyholderLastName;
   }
@@ -98,7 +98,7 @@ public class policy
    return age;
   }
   
-  public string smokingStatus()
+  public String smokingStatus()
   {
     return smokingStatus;
   }
@@ -112,6 +112,7 @@ public class policy
   {
     return weight;
   }
+}
   
      
      
