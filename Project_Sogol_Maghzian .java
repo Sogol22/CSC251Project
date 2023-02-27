@@ -20,9 +20,10 @@ public class Project_Sogol_Maghzian
         String smokingStatus = " ";
         double height = 0.0;
         double weight = 0.0;
+        double numSmokers = 0.0;
         
            //ArrayList to store Policy objects
-           ArrayList<policy> policy = new ArrayList<policy>();
+           ArrayList<policy> policyList = new ArrayList<policy>();
            
             //Get the filename 
             System.out.print("Enter the filename= ");
@@ -56,7 +57,7 @@ public class Project_Sogol_Maghzian
             inputFile.nextLine();
             
              //create a Policy object and add it to our ArrayList
-            policy.add(new policy(policyNumber,providerName,policyholderFirstName,  policyholderLastName, age, smokingStatus,height, weight)); //Passing variables as arguments to the constructor
+            policyList.add(new policy(policyNumber,providerName,policyholderFirstName,  policyholderLastName, age, smokingStatus,height, weight)); //Passing variables as arguments to the constructor
          
                        
         } //close loop
@@ -65,7 +66,7 @@ public class Project_Sogol_Maghzian
 
                    
        //use a for loop to display the output
-          for(Policy policy : policy)
+          for(policy policy : policyList)
          { 
 
            System.out.print("Policy Number: " + policy.getpolicyNumber());
@@ -85,7 +86,7 @@ public class Project_Sogol_Maghzian
       
      //print out the number of smokers and non-smokers
       System.out.println("The number of policies with a smoker is: " + numSmokers);
-      System.out.println("The number of policies with a non-smoker is: " + (policy.size() - numSmokers) );
+      System.out.println("The number of policies with a non-smoker is: " + (policyList.size() - numSmokers) );
       
        }//close the "try" block of code
       
