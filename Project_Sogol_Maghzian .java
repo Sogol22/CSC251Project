@@ -5,20 +5,12 @@ import java.io.*;
 
 public class Project_Sogol_Maghzian 
 {
-    public static void main(String[]args)
+    public static void main(String[]args) throws IOException
+
     {
        Scanner keyboard = new Scanner(System.in);
        
-       
-       
-       //Get the filename 
-       System.out.print("Enter the filename= ");
-       String PolicyInformation = keyboard.nextLine();
-       
-       //Open the file
-       File file = new File("PolicyInformation.txt");
-       Scanner inputFile = new Scanner(file);
-       
+              
        //declare the variables
         double policyNumber = 0.0;
         String providerName  = " ";
@@ -29,8 +21,17 @@ public class Project_Sogol_Maghzian
         double height = 0.0;
         double weight = 0.0;
         
-        //Create an array list to store objects. The ArrayList will hold Course objects.
-         ArrayList<policy> policy = new ArrayList<policy>();
+           //ArrayList to store Policy objects
+           ArrayList<policy> policy = new ArrayList<policy>();
+           
+            //Get the filename 
+            System.out.print("Enter the filename= ");
+            String PolicyInformation = keyboard.nextLine();
+       
+            //Open the file
+            File file = new File("PolicyInformation.txt");
+            Scanner inputFile = new Scanner(file);
+
          
           /* Use a while loop to read the file. Use the hasNext() method to determine whether 
             the file has more data to be read. Use an "if statement" to determine the end of the file and 
@@ -48,46 +49,43 @@ public class Project_Sogol_Maghzian
             height = inputFile.nextDouble();
             weight = inputFile.nextDouble();
             
-            if(inputFile.hasNext())
-            { 
-               inputFile.nextLine();
-               inputFile.nextLine();
-            }
+            //make sure we haven't hit the end of the file before trying to skip the blank line
+         if(inputFile.hasNext())
+            inputFile.nextLine();
+         if(inputFile.hasNext())
+            inputFile.nextLine();
             
-            /* Create Course objects using the Course class type - we are still under the while loop. Objects will be created as long as there are records
-            in the file to read.*/
-            policy c = new policy(policyNumber,providerName,policyholderFirstName,  policyholderLastName, age, smokingStatus,height, weight); //Passing variables as arguments to the constructor
+             //create a Policy object and add it to our ArrayList
+            policy.add(new policy(policyNumber,providerName,policyholderFirstName,  policyholderLastName, age, smokingStatus,height, weight)); //Passing variables as arguments to the constructor
          
-            /* Add Course objects to the ArrayList (Note: courses is the reference variable for the ArrayList and c is the
-            reference variable for the Course objects)*/
-            policy.add(c); 
-            
+                       
         } //close loop
         
         inputFile.close();//close the file
 
                    
        //use a for loop to display the output
-         for(int i =0; i < policy.size(); i++)
+          for(Policy policy : policy)
          { 
 
-           System.out.print("Policy Number: " + policy.get(i).getpolicyNumber());
-           System.out.print("\nProvider Name: " + policy.get(i).getproviderName());
-           System.out.print("\nPolicyholder’s First Name: " + policy.get(i).getpolicyholderFirstName());
-           System.out.print("\nPolicyholder’s Last Name: " + policy.get(i).getpolicyholderLastName());
-           System.out.print("\nPolicyholder’s Age: " + policy.get(i).getage());
-           System.out.print("\nPolicyholder’s Smoking Status: " + policy.get(i).getsmokingStatus());
-           System.out.print("\nPolicyholder’s Height: " + policy.get(i).getheight());
-           System.out.print("\nPolicyholder’s Weight:" + policy.get(i).getweight());
-        
+           System.out.print("Policy Number: " + policy.getpolicyNumber());
+           System.out.print("\nProvider Name: " + policy.getproviderName());
+           System.out.print("\nPolicyholder’s First Name: " + policy.getpolicyholderFirstName());
+           System.out.print("\nPolicyholder’s Last Name: " + policy.getpolicyholderLastName());
+           System.out.print("\nPolicyholder’s Age: " + policy.getage());
+           System.out.print("\nPolicyholder’s Smoking Status: " + policy.getsmokingStatus());
+           System.out.print("\nPolicyholder’s Height: " + policy.getheight());
+           System.out.print("\nPolicyholder’s Weight:" + policy.getweight());
+           System.out.println();
+           
+           if(policy.getsmokingStatus().equalsIgnoreCase("smoker"))//keep track of the number of smokers
+            numSmokers++;
+
         }
       
-       box.setBmi(45.81);
-       box.setpolicyPrice(816.24);
-       
-       
-         System.out.print("\nPolicyholder’s BMI: " + box.getBmi());
-         System.out.print("\nPolicy Price: " + box.getpolicyPrice());
+     //print out the number of smokers and non-smokers
+      System.out.println("The number of policies with a smoker is: " + numSmokers);
+      System.out.println("The number of policies with a non-smoker is: " + (policy.size() - numSmokers) );
       
        }//close the "try" block of code
       
